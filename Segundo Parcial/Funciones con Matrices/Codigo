@@ -1,0 +1,94 @@
+def createMatriz (m,n,v):
+    c = []
+    for i in range(m):
+        c.append([])
+        for j in range(n):
+            c[i].append(v)
+    return c
+
+def getDimensiones(A):
+    return(len(A),len(A[0]))
+    
+def sumMatrices(A,B):
+    Am,An = getDimensiones(A)
+    Bm,Bn = getDimensiones(B)
+    if Am != Bm or An != Bn:
+        print("Las dimensiones son diferentes")
+        return []
+    C = createMatriz(Am,An,0)
+    for i in range(Am):
+        for j in range(An):
+            C[i][j] = A[i][j] + B[i][j]
+    return C
+
+def resMatrices(A,B):
+    Am,An = getDimensiones(A)
+    Bm,Bn = getDimensiones(B)
+    if Am != Bm or An != Bn:
+        print("Las dimensiones so diferentes")
+        return []
+    C = createMatriz(Am,An,0)
+    for i in range(Am):
+        for j in range(An):
+            C[i][j] = A[i][j] - B[i][j]
+    return C
+
+def mulMatrices(A,B):
+    Am,An = getDimensiones(A)
+    Bm,Bn = getDimensiones(B)
+    if An != Bm:
+        print("Las matrices no son conformables")
+        return []
+    C = createMatriz(Am,Bn,0)
+    for i in range(Am):
+        for j in range(Bn):
+            for k in range(An):
+                C[i][j] += A[i][k]*B[k][j]
+    return C
+def getMenorMatriz(A,r,c):
+    m,n = getDimensiones(A)
+    C = createMatriz(m-1,n-1,0)
+    for i in range(m):
+        if i == r:
+            continue
+        for j in range(n):
+            if j == c:
+                continue
+            Ci = i
+            if i > r:
+                Ci = i - 1
+            Cj = j
+            if j > c:
+                Cj = j-1
+            C [i][j] = A[i][j]
+    return C
+       
+def detMatriz(A):
+    m,n = getDimensiones(A)
+    if m != n:
+        print("La matriz no es cuadrada")
+        return -1
+    if m == 1:
+        return m
+    if m == 2:
+        return A[0][0]*A[1][1] - A[0][1]*A[1][0]
+    det = 0
+    for j in range(n):
+        det += (-1)**j*A[0][j]*detMatriz(getMenorMAtriz(A,0,j))
+    return det
+       
+A = createMatriz(3,3,0)
+A[0] = [1,1,1]
+A[1] = [1,2,3]
+A[2] = [2,4,9]
+
+
+
+print(A)
+print(getMenorMatriz(A,2,2))
+B = createMatriz(1,1,1)
+
+
+print(sumMatrices(A,B))
+print(resMatrices(A,B))
+print(mulMatrices(A,A))
