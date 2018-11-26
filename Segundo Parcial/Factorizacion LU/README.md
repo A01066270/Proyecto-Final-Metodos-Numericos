@@ -1,1 +1,1 @@
-6666666666666666666666
+Este método es una forma de factorización de una matriz como el producto de una matriz triangular inferior y una superior.
