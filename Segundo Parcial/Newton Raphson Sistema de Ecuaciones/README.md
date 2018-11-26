@@ -1,1 +1,1 @@
-3333333333333
+Este método es una version para sistemas no lineales del ya mencionado Newton Raphson.
