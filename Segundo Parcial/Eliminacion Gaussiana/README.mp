@@ -1,1 +1,1 @@
-ppppppppppppppppp
+El método de eliminación Gaussiana (simple), consiste en escalonar la matriz aumentada del sistema: para obtener un sistema equivalente : donde la notación se usa simplemente para denotar que el elemento cambió.
