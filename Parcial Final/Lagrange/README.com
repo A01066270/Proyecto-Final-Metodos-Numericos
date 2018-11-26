@@ -1,1 +1,1 @@
-66666666666
+Este método es un procedimiento para encontrar los máximos y mínimos de funciones de múltiples variables sujetas a restricciones.
